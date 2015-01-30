@@ -7,17 +7,31 @@
 #Use the Parameter Testing feature in the box below to test your code with different arguments. 
 
 def RunLength(str)
-
-  new_string = []
-  # code goes here
-  str.split("").each do |val|
-    new_string << str.split(“”).select {|s| val == s}.length << val
+  new = str.split('')
+  fin = []
+  index = 0 
+  index2 = 0 
+  count = 0 
+  
+  while new.length > index 
+    if new[index] == new[index2]
+       count += 1
+    else
+        fin << count << new[index]
+        index = index2 
+        count = 0
+        index2 -= 1
+     end 
+    index2 += 1
+    
   end
-   
-  return new_string.join("") 
+    
+
+  # code goes here
+  return fin.join('') 
          
 end
    
 # keep this function call here 
 # to see how to enter arguments in Ruby scroll down   
-RunLength(STDIN.gets) 
+RunLength(STDIN.gets)  
